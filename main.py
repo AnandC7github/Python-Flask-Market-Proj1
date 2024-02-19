@@ -7,8 +7,8 @@ app = Flask('app')
 def hello_world():
   return '<h1>Changed Text!!!</h1>'
 
-@app.route('/about')
+@app.route('/about/<username>')
 def about_page():
-  return '<h1>About Page</h1>'
+  return f'<h1>This is the about page of {username} </h1>'
 
 app.run(host='0.0.0.0', port=8080)
