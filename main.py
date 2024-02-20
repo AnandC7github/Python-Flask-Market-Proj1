@@ -14,6 +14,9 @@ class Item(db.Model):
   price = db.Column(db.Integer(), nullable=False)
   description = db.Column(db.String(), nullable=False)
 
+  def __repr__(self):
+    return f'Item {self.name}'
+
 
 @app.route(
     '/'
