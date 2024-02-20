@@ -1,3 +1,5 @@
+db = SQLAlchemy(app)
+
 class Item(db.Model):
   """Database table for ITEMS"""
   id = db.Column(db.Integer, primary_key=True)
