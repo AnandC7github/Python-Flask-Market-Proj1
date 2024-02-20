@@ -15,6 +15,6 @@ def market_page():
       {'id': 2, 'name': 'Laptop', 'barcode': '123985473165', 'price': 900},
       {'id': 3, 'name': 'Keyboard', 'barcode': '231985128446', 'price': 150}
   ]
-  return render_template('market.html', item_name = 'Phone')
+  return render_template('market.html', items = items)
 
 app.run(host='0.0.0.0', port=8080, debug= True)
