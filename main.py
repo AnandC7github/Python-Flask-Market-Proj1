@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-db = SQLAlchemy()
+db = SQLAlchemy(app)
 
 @app.route('/')         # python decorators - What url in your website i am going to navigate through
 @app.route('/home')
