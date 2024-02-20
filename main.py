@@ -4,6 +4,14 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
+class Item(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  name = db.Column(db.String(length=100), nullable=False)
+  price = db.Column(db.Integer(), nullable=False)
+  barcode = db.Column(db.String(length=12), unique=True, nullable=False)
+  description = db.Column(db.String(length=2500), unique=True, nullable=False)
+  
+
 @app.route('/')         # python decorators - What url in your website i am going to navigate through
 @app.route('/home')
 def home_page():
