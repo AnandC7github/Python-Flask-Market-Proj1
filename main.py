@@ -14,8 +14,8 @@ class Item(db.Model):
   price = db.Column(db.Integer(), nullable=False)
   description = db.Column(db.String(), nullable=False)
 
-  def __repr__(self):
-    return f'Item {self.name}'
+  def __repr__(self) -> str:
+    return f"ITEM < {self.name} | ${self.price} >"
 
 
 @app.route(
@@ -28,22 +28,23 @@ def home_page():
 
 @app.route('/market')
 def market_page():
-  items = [{
-      'id': 1,
-      'name': 'Phone',
-      'barcode': '893212299897',
-      'price': 500
-  }, {
-      'id': 2,
-      'name': 'Laptop',
-      'barcode': '123985473165',
-      'price': 900
-  }, {
-      'id': 3,
-      'name': 'Keyboard',
-      'barcode': '231985128446',
-      'price': 150
-  }]
+  # items = [{
+  #     'id': 1,
+  #     'name': 'Phone',
+  #     'barcode': '893212299897',
+  #     'price': 500
+  # }, {
+  #     'id': 2,
+  #     'name': 'Laptop',
+  #     'barcode': '123985473165',
+  #     'price': 900
+  # }, {
+  #     'id': 3,
+  #     'name': 'Keyboard',
+  #     'barcode': '231985128446',
+  #     'price': 150
+  # }]
+  items = Item.query.all()
   return render_template('market.html', items=items)
 
 
@@ -55,5 +56,42 @@ if __name__ == '__main__':
     db.drop_all()
     # # create database and table
     db.create_all()
+    print(">> Database :: <<")
+    # # Add an item into the ITEM table
+    item = Item()
+    item.name = 'Phone X'
+    item.barcode = '893212299889'
+    item.price = 600
+    item.description = 'Coolest phone X ever'
+
+    db.session.add(item)
+    db.session.commit()
+
+    # Different Syntax ---
+    item_1 = Item(name='Phone',
+                  barcode='893212299897',
+                  price=500,
+                  description='Coolest phone ever')
+    item_2 = Item(name='Laptop',
+                  barcode='993212299897',
+                  price=1500,
+                  description='Coolest Laptop ever')
+    item_3 = Item(name='Apple Laptop',
+                  barcode='993212299999',
+                  price=2500,
+                  description='Coolest Apple Laptop ever')
+    item_4 = Item(name='Gameboy',
+                  barcode='993212299897',
+                  price=150,
+                  description='Coolest Gameboy ever')
+    db.session.add_all([item_1, item_2, item_3, item_4])
+    db.session.commit()
+
+    # # print all the items in the table ITEM
+    # print(Item.query.all())
+    for item in Item.query.all():
+      print(">> ", item)
+
+  # -------------------------------------------------------------
 
   app.run(host='0.0.0.0', port=3000, debug=True)
