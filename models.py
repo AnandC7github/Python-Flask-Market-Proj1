@@ -1,5 +1,3 @@
-from flask_sqlalchemy import SQLAlchemy
-db = SQLAlchemy(app)
 
 class Item(db.Model):
   """Database table for ITEMS"""
