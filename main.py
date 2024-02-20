@@ -52,16 +52,5 @@ if __name__ == '__main__':
     db.drop_all()
     # # create database and table
     db.create_all()
-    print(">> Database :: <<")
-    # # Add an item into the ITEM table
-    item = Item()
-    item.name = 'Phone X'
-    item.barcode = '893212299889'
-    item.price = 600
-    item.description = 'Coolest phone X ever'
-
-    db.session.add(item)
-    db.session.commit()
-
 
   app.run(host='0.0.0.0', port=3000, debug=True)
