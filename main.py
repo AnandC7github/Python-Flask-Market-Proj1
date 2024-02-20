@@ -37,8 +37,8 @@ if __name__ == '__main__':
   #DATA-BASE CODE HERE --------------------------
   with app.app_context():
     # # drop the database tables
-    db.drop_all()
+    # db.drop_all()
     # # create database and table
-    db.create_all()
+    # db.create_all()
 
-  app.run(host='0.0.0.0', port=3000, debug=True)
+    app.run(host='0.0.0.0', port=3000, debug=True)
