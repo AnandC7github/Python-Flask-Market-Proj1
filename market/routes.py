@@ -1,5 +1,6 @@
 from market import app 
 from flask import render_template
+from market.models import Item
 
 @app.route('/')  # python decorators - What url in your website i am going to navigate through
 @app.route('/home')
