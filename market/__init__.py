@@ -1,4 +1,4 @@
-from market import app
+#from market import app
 from run import app
 
 app.run()
