@@ -1,3 +1,5 @@
+from market import app 
+
 @app.route('/')  # python decorators - What url in your website i am going to navigate through
 @app.route('/home')
 def home_page():
