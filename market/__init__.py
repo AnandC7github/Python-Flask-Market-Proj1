@@ -1,4 +1,9 @@
-#from market import app
-from run import app
+from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
-app.run()
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'
+db = SQLAlchemy(app)
+
+
+
