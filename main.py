@@ -2,7 +2,7 @@ from market import app, db
 from market.models import Item, User
 
 # Create a new item
-new_item = Item(name='Laptop', barcode='73457980091403', price=1200, description='Discover the perfect blend of style and performance with our sleek and powerful laptop. Packed with features to enhance your computing experience, this laptop is designed to meet your every need. Key Features:Impressive Performance,Vibrant Display, Slim and Lightweight Design, Ample Storage Capacity, Long Battery Life, Connectivity Options')
+new_item = Item(name='Office Chair', barcode='81735649280123', price=1200, description='Ergonomically designed seating solution crafted for optimal comfort and support during long work hours. Features adjustable height, lumbar support, and a breathable mesh backrest for enhanced productivity and well-being. Sturdy construction and contemporary design make it suitable for any modern office environment.')
 
 if __name__ == '__main__':
   with app.app_context():
