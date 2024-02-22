@@ -5,6 +5,7 @@ class User(db.Model):
   username = db.Column(db.String(length=100), nullable=False)
   email_address = db.Column(db.String(length=100), nullable=False, unique = True)
   password_hash = db.Column(db.String(length=100), nullable=False)
+  budget = db.Column(db.Integer(), nullable=False, default = 100000)
   
 
 class Item(db.Model):
