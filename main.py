@@ -4,10 +4,12 @@ from market.models import Item, User
 
 if __name__ == '__main__':
   with app.app_context():
-  # Update owner/user_id for items in the database
-    items_to_update = Item.query.all()
-    for item in items_to_update:
-      item.owner = 1
-    db.session.commit()
+    # Print owner/user_id for items with IDs 1, 2, and 3
+    item_ids_to_print = [1, 2, 3]
+
+    for item_id in item_ids_to_print:
+        item = Item.query.get(item_id)
+        if item:
+            print(f"Owner of item with ID {item_id}: {item.owner}")
     print(__name__)
     app.run(host="0.0.0.0", port=3000, debug=True)
