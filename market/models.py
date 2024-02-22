@@ -13,7 +13,7 @@ class Item(db.Model):
     """Database table for ITEMS"""
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30), nullable=False)
-    barcode = db.Column(db.String(), nullable=False)
+    barcode = db.Column(db.String(14), nullable=False)
     price = db.Column(db.Integer(), nullable=False)
     description = db.Column(db.String(), nullable=False)
     owner = db.Column(db.Integer(), db.ForeignKey('user.id'))
