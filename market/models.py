@@ -1,5 +1,9 @@
 from market import db 
 
+class User(db.Model):
+  id = db.Column(db.Integer(), primary_key=True)
+  username = db.Column(db.String(length=100), nullable=False)
+
 class Item(db.Model):
     """Database table for ITEMS"""
     id = db.Column(db.Integer, primary_key=True)
