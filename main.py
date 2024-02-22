@@ -3,7 +3,11 @@ from market.models import Item, User
 
 
 # Create a new user
-new_user = User(username='Anand', email_address='anand@gmail.com', password_hash='123456', budget=150000)
+new_user = User()
+new_user.username = 'Anand'
+new_user.email_address = 'anand@gmail.com'
+new_user.password_hash = '123456'
+new_user.budget = 150000
 
 #checks if the run.py has executed directly and not imported 
 if __name__ == '__main__':
