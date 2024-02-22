@@ -1,16 +1,24 @@
 from market import app, db
 from market.models import Item
 
+# List of item IDs to delete
+item_ids_to_delete = [7, 8, 9]
+
 #checks if the run.py has executed directly and not imported 
 if __name__ == '__main__':
     with app.app_context():
-      # Add items to the Item table
-        item1 = Item(name='Phone', barcode='893212299897', price=500, description='Coolest phone ever')
-        item2 = Item(name='Laptop', barcode='123985473165', price=900, description='Powerful laptop')
-        item3 = Item(name='Keyboard', barcode='231985128446', price=150, description='Mechanical keyboard')
+      # Iterate over the item IDs and delete each item
+      for item_id in item_ids_to_delete:
+          item_to_delete = Item.query.get(item_id)
 
-      # Add items to the session and commit the changes
-        db.session.add_all([item1, item2, item3])
-        db.session.commit()
+          # Check if the item with the given ID exists
+          if item_to_delete:
+              db.session.delete(item_to_delete)
+              print(f"Deleted item with ID {item_id}")
+          else:
+              print(f"Item with ID {item_id} not found in the database")
+
+      # Commit the changes to the database
+      db.session.commit()
     print(__name__)
     app.run(host="0.0.0.0", port=3000, debug=True)
