@@ -1,22 +1,12 @@
-from market import app, db
+from market import app
 from flask import render_template, redirect, url_for, flash
 from market.models import Item, User
 from market.forms import RegisterForm
+from market import db
 
 @app.route('/')
 @app.route('/home')
 def home_page():
-    with app.app_context():
-        # Assuming you have already created the database
-        db.create_all()
-
-        # Retrieve all users from the database
-        all_users = User.query.all()
-
-        # Print all usernames
-        for user in all_users:
-            print(user.username)
-
     return render_template('home.html')
 
 @app.route('/market')
@@ -28,11 +18,11 @@ def market_page():
 def register_page():
     form = RegisterForm()
     if form.validate_on_submit():
-        user_to_create = User(username=form.username.data, email_address=form.email_address.data, password_hash=form.password1.data)
+        user_to_create = User(username=form.username.data,email_address=form.email_address.data,password_hash=form.password1.data)
         db.session.add(user_to_create)
         db.session.commit()
         return redirect(url_for('market_page'))
-    if form.errors != {}:  # If there are not errors from the validations
+    if form.errors != {}: #If there are not errors from the validations
         for err_msg in form.errors.values():
             flash(f'There was an error with creating a user: {err_msg}')
 
