@@ -41,7 +41,11 @@
       {% if messages %}
         <div class="text-center">
           {% for category, message in messages %}
-            <p>{{ message }}</p>
+            <div class="alert alert-{{ category}}">
+              <button type = "button" class="m1-2 mb-1 close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
           {% endfor %}
         </div>
       {% endif %}
