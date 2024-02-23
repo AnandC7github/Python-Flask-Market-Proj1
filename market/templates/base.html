@@ -40,7 +40,7 @@
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
         <div class="text-center">
-          {% for message in messages %}
+          {% for category, message in messages %}
             <p>{{ message }}</p>
           {% endfor %}
         </div>
