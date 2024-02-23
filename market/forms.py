@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import  Length
+from wtforms.validators import  Length, EqualTo
 
 class RegisterForm(FlaskForm):
   username = StringField(label = 'User Name:',validators = Length(min = 2, max = 50))
