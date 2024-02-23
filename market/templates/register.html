@@ -6,6 +6,7 @@
 {% block content %}
 <div class="container">
   <form method = "POST" class = "form-register" style = "color:white">
+      <img class="mb-4" src="{{ url_for('static', filename='logo.jpeg') }}" alt="Logo">
     {{ form.username.label() }}
     {{ form.username(class="form-control",placeholder = "User Name") }}
 
