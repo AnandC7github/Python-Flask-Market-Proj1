@@ -8,6 +8,9 @@
   <form method = "POST" class = "form-register" style = "color:white">
     {{ form.username.label() }}
     {{ form.username(class="form-control",placeholder = "User Name") }}
+
+    {{ form.email.label() }}
+    {{ form.email(class="form-control",placeholder = "Email Address") }}
   </form>
 </div>
 {% endblock %}
