@@ -13,3 +13,7 @@ def market_page():
   items = Item.query.all()
   return render_template('market.html', items=items)
 
+@app.route('/register')
+def register_page():
+  form = RegisterForm()
+
