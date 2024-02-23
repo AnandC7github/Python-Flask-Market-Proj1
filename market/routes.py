@@ -1,6 +1,6 @@
 from wtforms.fields.simple import PasswordField
 from market import app
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, get_flashed_messages
 from market.models import Item, User
 from market.forms import RegisterForm
 from market import db
