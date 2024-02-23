@@ -39,12 +39,15 @@
     </nav>
     {% with messages = get_flashed_messages(with_categories=true) %}
       {% if messages %}
-        {% for message in messages %}
-          <p>{{ message }}</p>
-        {% endfor %}
+        <div class="text-center">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
       {% endif %}
     {% endwith %}
     {% block content %}
+    
     {% endblock %}
     <!----Future Content Here--->
 
