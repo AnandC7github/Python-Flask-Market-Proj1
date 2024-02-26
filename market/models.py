@@ -8,9 +8,13 @@ class User(db.Model):
   budget = db.Column(db.Integer(), nullable=False, default = 100000)
   items = db.relationship('Item', backref='owned_user',lazy = True)
 
-@property
-def password(self):
-  return self.password
+  @property
+  def password(self):
+    return self.password
+  
+  @password.setter
+  def password(self, plain_text_password):
+    self.password_hash = plain_text_password
 
 class Item(db.Model):
     """Database table for ITEMS"""
