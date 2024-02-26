@@ -7,6 +7,9 @@ class User(db.Model):
   password_hash = db.Column(db.String(length=100), nullable=False)
   budget = db.Column(db.Integer(), nullable=False, default = 100000)
   items = db.relationship('Item', backref='owned_user',lazy = True)
+
+@property
+
   
 
 class Item(db.Model):
