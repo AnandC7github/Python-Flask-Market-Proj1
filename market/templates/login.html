@@ -8,11 +8,13 @@
     <div class="container">
         <form method="POST" class="form-signin" style="color:white">
             {{ form.hidden_tag() }}
-            <img class="mb-4" src="https://res.cloudinary.com/jimshapedcoding/image/upload/v1597332609/android-icon-192x192_ove2a7.png" alt="">
+          <br>
+          <div class="d-flex justify-content-center">
+              <img class="mb-4 rounded-circle" src="{{ url_for('static', filename='logo.jpeg') }}" alt="Logo" width="150">
+          </div>
             <h1 class="h3 mb-3 font-weight-normal">
                 Please Login
             </h1>
-            <br>
             {{ form.username.label() }}
             {{ form.username(class="form-control", placeholder="User Name") }}
 
