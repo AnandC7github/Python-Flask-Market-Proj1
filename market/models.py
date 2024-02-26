@@ -9,8 +9,8 @@ class User(db.Model):
   items = db.relationship('Item', backref='owned_user',lazy = True)
 
 @property
-
-  
+def password(self):
+  return self.password
 
 class Item(db.Model):
     """Database table for ITEMS"""
