@@ -1,4 +1,4 @@
-from market import db
+from market import db, login_manager
 from market import bcrypt
 
 @login_manager.user_loader
