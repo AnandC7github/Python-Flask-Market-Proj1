@@ -38,7 +38,7 @@ def login_page():
     attempted_user = User.query.get(form.username.data).first()
     if attempted_user and attempted_user.check_password_correction(attempted_password=form.password.data):
       login_user(attempted_user)
-      flash(f'Success! You are logged in as {attempted_user.username}')
+      flash(f'Success! You are logged in as {attempted_user.username}', category = 'success')
       return redirect(url_for('market_page'))
     else:
       flash('Username and password incorrect! Please try again!')
