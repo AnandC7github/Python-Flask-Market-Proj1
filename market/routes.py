@@ -39,4 +39,5 @@ def login_page():
     if attempted_user and attempted_user.check_password_correction(attempted_password=form.password.data):
       login_user(attempted_user)
       flash(f'Success! You are logged in as {attempted_user.username}')
+      return redirect(url_for('market_page'))
   return render_template('login.html', form=form)
