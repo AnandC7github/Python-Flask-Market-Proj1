@@ -27,6 +27,9 @@
                 <a class="nav-link" href="{{url_for('market_page')}}">Market</a>
             </li>
         </ul>
+        { % if current_user.is_authenticated % }
+        { % else %}
+        { % endif %}
         <ul class="navbar-nav ms-auto"> <!-- Updated from ml-auto to ms-auto -->
             <li class="nav-item">
                 <a class="nav-link" href="{{url_for('login_page')}}">Login</a>
