@@ -30,6 +30,7 @@ def register_page():
                           password_hash=password_hash)
     db.session.add(user_to_create)
     db.session.commit()
+    login_user(user_to_create)
     return redirect(url_for('login_page'))
   if form.errors != {}:  #If there are not errors from the validations
     for err_msg in form.errors.values():
