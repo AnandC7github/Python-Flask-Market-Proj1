@@ -32,7 +32,7 @@ def register_page():
     db.session.commit()
     login_user(user_to_create)
     flash(f"Account created for {form.username.data}!, You are now logged in as {user_to_create.username}!", category = 'success')
-    return redirect(url_for('login_page'))
+    return redirect(url_for('market_page'))
   if form.errors != {}:  #If there are not errors from the validations
     for err_msg in form.errors.values():
       flash(f'Error: {err_msg[0]}', 'danger')
