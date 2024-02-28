@@ -28,6 +28,11 @@
             </li>
         </ul>
         { % if current_user.is_authenticated % }
+        <ul class="navbar-nav ms-auto"> 
+            <li class="nav-item">
+                <a class="nav-link" href="#">Log Out</a>
+            </li>
+        </ul>
         { % else %}
         <ul class="navbar-nav ms-auto"> <!-- Updated from ml-auto to ms-auto -->
             <li class="nav-item">
