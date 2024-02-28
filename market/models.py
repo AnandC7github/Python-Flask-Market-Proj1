@@ -16,6 +16,12 @@ class User(db.Model, UserMixin):
   budget = db.Column(db.Integer(), nullable=False, default=100000)
   items = db.relationship('Item', backref='owned_user', lazy=True)
 
+  @property
+  def prettier_budget(self):
+    if len(str(self.budget)) >= 4:
+      pass
+    else:
+      return f'${self.budget}'
   # @property
   # def password(self):
   #   return self.password
