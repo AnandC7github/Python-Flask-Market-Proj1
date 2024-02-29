@@ -28,6 +28,9 @@ def market_page():
         db.session.commit()
         flash(f'Congratulations! You have purchased {p_item_object.name} for ${p_item_object.price}.')
         
+      else:
+        flash(f"Unfortunately, you dont have enough money to purchase {p_item_object.name}")
+        
   if request.method == 'GET':
     items = Item.query.filter_by(owner = None)
   return render_template('market.html', items=items, purchase_form = purchase_form)
