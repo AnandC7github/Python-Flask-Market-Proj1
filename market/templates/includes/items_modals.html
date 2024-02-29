@@ -42,9 +42,11 @@
           {{ purchase_form.hidden_tag() }}
           <h4 class= "text-center">
             Are you sure you want to buy {{ item.name }} for ₹{{ item.price }} ?</h4>
+          <br>
           <h6 class="text-center">
             By clicking purchase, you will purchase this item.
           </h6>
+          <br>
           <div class="text-center">
             {{ purchase_form.submit(class="btn btn-outline-success btn-block") }}
           </div>
