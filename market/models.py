@@ -1,4 +1,3 @@
-from _typeshed import Self
 from market import db, login_manager
 from market import bcrypt
 from flask_login import UserMixin
