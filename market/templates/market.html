@@ -43,10 +43,10 @@
      <br>
      <div class="row">
         {% for owned_item in owned_items %}
-        {% include 'includes/owned_items_modals.html' %}
+      
         <div class="col-md-6">
-           <div style="margin-bottom: 5px" class="card text-center bg-dark">
-              <div class="card-body">
+           <div style="margin-bottom: 5px" class="card text-center bg-light">
+              <div class="card-body" style="color:black">
                  <h5 class="card-title">{{ owned_item.name }}</h5>
                  <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px"
                    data-bs-toggle="modal" data-bs-target="#Modal-SellingConfirm-{{ owned_item.id }}">
