@@ -40,6 +40,7 @@
       <div class="modal-body">
         Are you sure you want to buy {{ item.name }} for ₹{{ item.price }} ?
         <form method = "POST">
+          {{ purchase_form.hidden_tag() }}
         </form>
       </div>
       <div class="modal-footer">
