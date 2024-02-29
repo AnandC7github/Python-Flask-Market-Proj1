@@ -1,3 +1,4 @@
+from _typeshed import Self
 from market import db, login_manager
 from market import bcrypt
 from flask_login import UserMixin
@@ -56,6 +57,6 @@ class Item(db.Model):
 #   db.create_all()
 
   def buy(self, user):
-    p_item_object.owner = current_user.id
-    current_user.budget -= p_item_object.price
+    self.owner = current_user.id
+    current_user.budget -= self.price
     db.session.commit() # added the code from routes.py to here
