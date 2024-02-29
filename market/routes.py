@@ -26,7 +26,8 @@ def market_page():
       current_user.budget -= p_item_object.price
       db.session.commit()
       flash(f'Congratulations! You have purchased {p_item_object.name} for ${p_item_object.price}.')
-  items = Item.query.filter_by(owner = None)
+  if request.method == 'GET':
+    items = Item.query.filter_by(owner = None)
   return render_template('market.html', items=items, purchase_form = purchase_form)
 
 
