@@ -57,6 +57,6 @@ class Item(db.Model):
 #   db.create_all()
 
   def buy(self, user):
-    self.owner = current_user.id
-    current_user.budget -= self.price
+    self.owner = user.id
+    user.budget -= self.price
     db.session.commit() # added the code from routes.py to here
