@@ -31,6 +31,8 @@ def market_page():
       else:
         balance = p_item_object.price - current_user.budget
         flash(f"Unfortunately, you lack ₹{balance} to purchase {p_item_object.name}", category = 'danger')
+
+    return redirect(url_for('market_page'))
         
   if request.method == 'GET':
     items = Item.query.filter_by(owner = None)
