@@ -26,7 +26,7 @@ def market_page():
         p_item_object.owner = current_user.id
         current_user.budget -= p_item_object.price
         db.session.commit()
-        flash(f'Congratulations! You have purchased {p_item_object.name} for ${p_item_object.price}.')
+        flash(f'Congratulations! You have purchased {p_item_object.name} for ${p_item_object.price}.', category = 'success')
         
       else:
         balance = p_item_object.price - current_user.budget
