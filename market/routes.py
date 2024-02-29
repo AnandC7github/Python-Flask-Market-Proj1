@@ -16,8 +16,12 @@ def home_page():
 @login_required
 def market_page():
   purchase_form = PurchaseItemForm()
-  if purchase_form.validate_on_submit():
-    print(request.form.get('purchased_item'))  #to display what item is purchased - in console
+  # if purchase_form.validate_on_submit():
+  #   print(request.form.get('purchased_item'))  #to display what item is purchased - in console
+  if request.method == 'POST':
+    purchased_item = request.form.get('purchased_item')
+    p_item_object = Item.query.filter_by(name = purchased_item).first()
+    
   items = Item.query.all()
   return render_template('market.html', items=items, purchase_form = purchase_form)
 
