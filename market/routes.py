@@ -26,7 +26,7 @@ def market_page():
         # p_item_object.owner = current_user.id
         # current_user.budget -= p_item_object.price
         # db.session.commit()
-        p_item_object.assign_ownership()
+        p_item_object.buy()
         flash(f'Congratulations! You have purchased {p_item_object.name} for ${p_item_object.price}.', category = 'success')
         
       else:
