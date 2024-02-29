@@ -15,6 +15,20 @@ def home_page():
 @app.route('/market')
 @login_required
 def market_page():
+  # Check if items already exist, if not, add them to the list
+  if not Item.query.filter_by(name='Chair').first():
+      chair = Item(name='Chair', barcode='901223988475', price=50000, description='Comfortable chair for sitting')
+      db.session.add(chair)
+
+  if not Item.query.filter_by(name='Oven').first():
+      oven = Item(name='Oven', barcode='798527389444', price=100000, description='High-quality oven for cooking')
+      db.session.add(oven)
+
+  if not Item.query.filter_by(name='Laptop').first():
+      laptop = Item(name='Laptop', barcode='289554637892', price=200000, description='Powerful laptop for work and entertainment')
+      db.session.add(laptop)
+
+  db.session.commit()
   items = Item.query.all()
   return render_template('market.html', items=items)
 
