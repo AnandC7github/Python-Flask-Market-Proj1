@@ -30,7 +30,7 @@ def market_page():
         
       else:
         balance = p_item_object.price - current_user.budget
-        flash(f"Unfortunately, you dont have ₹{balance} to purchase {p_item_object.name}", category = 'danger')
+        flash(f"Unfortunately, you lack ₹{balance} to purchase {p_item_object.name}", category = 'danger')
         
   if request.method == 'GET':
     items = Item.query.filter_by(owner = None)
