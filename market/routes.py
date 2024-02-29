@@ -56,7 +56,7 @@ def login_page():
             category='success')
       return redirect(url_for('market_page'))
     else:
-      flash('Username and password incorrect! Please try again!',
+      flash('Email and password incorrect! Please try again!',
             category='danger')
 
   return render_template('login.html', form=form)
