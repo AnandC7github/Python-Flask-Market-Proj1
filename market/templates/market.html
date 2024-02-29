@@ -3,7 +3,7 @@
 Market Page
 {% endblock %}
 {% block content %}
-{% include 'includes/items_modals.html' %}
+
 <div class = "row" style = "margin: top 20px; margin-left:20px">
    <div class = "col-8">
      <h2> Available Items in the Market</h2>
@@ -22,6 +22,7 @@ Market Page
          </thead>
          <tbody>
             {% for item in items %}
+           {% include 'includes/items_modals.html' %}
             <!-- Your rows inside the table HERE: -->
             <tr>
                <td>{{ item.id }}</td>
