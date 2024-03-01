@@ -20,6 +20,7 @@ def market_page():
   # if purchase_form.validate_on_submit():
   #   print(request.form.get('purchased_item'))  #to display what item is purchased - in console
   if request.method == 'POST':
+    #Purchase item logic
     purchased_item = request.form.get('purchased_item')
     p_item_object = Item.query.filter_by(name = purchased_item).first()
     if p_item_object:
