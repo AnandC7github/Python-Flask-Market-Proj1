@@ -30,7 +30,10 @@ def market_page():
       else:
         balance = p_item_object.price - current_user.budget
         flash(f"Unfortunately, you lack ₹{balance} to purchase {p_item_object.name}", category = 'danger')
-
+    
+    #Sell item logic
+    sold_item = request.form.get('sold_item')
+    
     return redirect(url_for('market_page'))
         
   if request.method == 'GET':
