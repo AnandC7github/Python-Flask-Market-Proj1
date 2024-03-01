@@ -60,3 +60,8 @@ class Item(db.Model):
     self.owner = user.id
     user.budget -= self.price
     db.session.commit() # added the code from routes.py to here
+
+  def sell(self, user):
+    self.owner = None
+    user.budget += self.price
+    db.session.commit()
