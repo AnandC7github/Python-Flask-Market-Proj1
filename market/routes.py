@@ -16,6 +16,7 @@ def home_page():
 @login_required
 def market_page():
   purchase_form = PurchaseItemForm()
+  selling_form = SellItemForm()
   # if purchase_form.validate_on_submit():
   #   print(request.form.get('purchased_item'))  #to display what item is purchased - in console
   if request.method == 'POST':
