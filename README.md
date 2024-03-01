@@ -3,7 +3,8 @@ Certainly! Here's an updated version of the README file, incorporating the infor
 ```markdown
 # Python Flask Market Project
 
-![Python-Flask-Market-Proj1](https://github.com/AnandC7github/Python-Flask-Market-Proj1/blob/main/Screenshot%20(416).png)
+![Python-Flask-Market-Proj1](https://raw.githubusercontent.com/AnandC7github/Python-Flask-Market-Proj1/main/Screenshot%20(416).png)
+
 
 Python Flask Market Project is a modified version of a FreeCodeCamp project, built using Flask, SQLAlchemy, and Bootstrap.
 
