@@ -1,7 +1,7 @@
 from market import app
 from flask import render_template, redirect, url_for, flash, request
 from market.models import Item, User
-from market.forms import RegisterForm, LoginForm, PurchaseItemForm
+from market.forms import RegisterForm, LoginForm, PurchaseItemForm, SellItemForm
 from market import db, bcrypt
 from flask_login import login_user, logout_user, login_required, current_user
 
@@ -16,9 +16,11 @@ def home_page():
 @login_required
 def market_page():
   purchase_form = PurchaseItemForm()
+  selling_form = SellItemForm()
   # if purchase_form.validate_on_submit():
   #   print(request.form.get('purchased_item'))  #to display what item is purchased - in console
   if request.method == 'POST':
+    #Purchase item logic
     purchased_item = request.form.get('purchased_item')
     p_item_object = Item.query.filter_by(name = purchased_item).first()
     if p_item_object:
@@ -28,13 +30,22 @@ def market_page():
       else:
         balance = p_item_object.price - current_user.budget
         flash(f"Unfortunately, you lack ₹{balance} to purchase {p_item_object.name}", category = 'danger')
-
+    
+    #Sell item logic
+    sold_item = request.form.get('sold_item')
+    s_item_object = Item.query.filter_by(name = sold_item).first
+    if s_item_object:
+      if current_user.can_sell(s_item_object):
+        s_item_object.sell(current_user)
+        flash(f'Congratulations! You have sold {s_item_object.name} for ₹{s_item_object.price}.', category = 'success')
+      else:
+        flash(f'Oops..!! Something went wrong in selling  {s_item_object.name} .', category = 'danger')
     return redirect(url_for('market_page'))
         
   if request.method == 'GET':
     items = Item.query.filter_by(owner = None)
     owned_items = Item.query.filter_by(owner = current_user.id)
-  return render_template('market.html', items=items, purchase_form = purchase_form, owner = current_user, owned_items =  owned_items) # changing owner to current user for check
+  return render_template('market.html', items=items, purchase_form = purchase_form, owner = current_user, owned_items =  owned_items, selling_form = selling_form) # changing owner to current user for check
 
 
 @app.route('/register', methods=['GET', 'POST'])
