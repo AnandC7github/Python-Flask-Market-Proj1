@@ -34,6 +34,9 @@ def market_page():
     #Sell item logic
     sold_item = request.form.get('sold_item')
     s_item_object = Item.query.filter_by(name = sold_item).first
+    if s_item_object:
+      if current_user.can_sell(s_item_object):
+        
     return redirect(url_for('market_page'))
         
   if request.method == 'GET':
