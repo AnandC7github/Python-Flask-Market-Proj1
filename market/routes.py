@@ -38,6 +38,8 @@ def market_page():
       if current_user.can_sell(s_item_object):
         s_item_object.sell(current_user)
         flash(f'Congratulations! You have sold {s_item_object.name} for ₹{s_item_object.price}.', category = 'success')
+      else:
+        flash(f'Oops..!! Something went wrong in selling  {s_item_object.name} .', category = 'danger')
     return redirect(url_for('market_page'))
         
   if request.method == 'GET':
